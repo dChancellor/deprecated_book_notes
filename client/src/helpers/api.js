@@ -7,7 +7,8 @@ const useGetRequest = (url) => {
 
   useEffect(() => {
     let prevent = false;
-    const fetchData = async () => {
+    if (url) {
+      const fetchData = async () => {
         try {
           setLoading(true);
           let response = await fetch(url, {
@@ -22,8 +23,9 @@ const useGetRequest = (url) => {
         } finally {
           setLoading(false);
         }
-    };
-    fetchData();
+      };
+      fetchData();
+    }
     return () => {
       prevent = true;
     };
