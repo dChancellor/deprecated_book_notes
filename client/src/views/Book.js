@@ -1,23 +1,22 @@
 import Chapter from '../components/Chapter';
 import style from '../css/BookNotes.module.css';
 
-function Book({ annotation, saveAnnotation }) {
+function Book({ chapters, saveAnnotation }) {
   const addChapter = () => {
-    let tempData = [...annotation];
-    let chapterCounter = annotation.length + 1;
-    let newChapter = {
-      chapterNumber: chapterCounter,
-      notes: [],
-      summary: '',
-    };
-    tempData.push(newChapter);
-    saveAnnotation(tempData);
+    let chapterCounter = chapters.length + 1;
+    saveAnnotation([
+      ...chapters,
+      {
+        chapterNumber: chapterCounter,
+        notes: [],
+        summary: '',
+      },
+    ]);
   };
 
-  const saveChapter = (chapterNumber, data) => {
-    let tempData = [...annotation];
-    tempData[chapterNumber - 1] = { ...tempData[chapterNumber - 1], ...data };
-    saveAnnotation(tempData);
+  const saveChapter = (chapterNumber, newNotes) => {
+    chapters[chapterNumber-1].notes = newNotes
+    saveAnnotation(chapters);
   };
 
   return (
@@ -26,8 +25,8 @@ function Book({ annotation, saveAnnotation }) {
         Add Chapter
       </button>
       <section>
-        {annotation &&
-          annotation.map((chapter) => (
+        {chapters &&
+          chapters.map((chapter) => (
             <Chapter
               saveChapter={saveChapter}
               chapter={chapter}

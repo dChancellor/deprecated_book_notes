@@ -52,7 +52,7 @@ function Note({ note, saveNote }) {
       <button
         onClick={() => {
           if (isNoteEditable) {
-            saveNote({
+            saveNote(note.id, {
               noteType,
               content,
               pageNumber,

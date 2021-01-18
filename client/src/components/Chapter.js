@@ -8,28 +8,28 @@ function Chapter({ chapter, saveChapter }) {
   const [isSummaryDisabled, setSummaryDisabled] = useState(true);
 
   const addNote = (noteType) => {
-    let data = { ...chapter };
-    data.notes.push({
-      noteType,
-      id: data.notes.length + 1,
-      content: `New ${noteType}`,
-      pageNumber: '0',
-      new:true
-    });
-    saveChapter(chapter.chapterNumber, data);
+    saveChapter(chapter.chapterNumber, [
+      ...chapter.notes,
+      {
+        noteType,
+        id: chapter.notes.length + 1,
+        content: `New ${noteType}`,
+        pageNumber: '0',
+        new: true,
+      },
+    ]);
   };
 
-  const saveNote = (data) => {
-    let tempData = { ...chapter };
-    let noteID = tempData.notes.findIndex((note) => note.id === data.id);
-    tempData.notes[noteID] = { ...tempData[noteID], ...data };
-    saveChapter(chapter.chapterNumber, tempData);
+  const saveNote = (id, newNote) => {
+    let index = chapter.notes.findIndex(note => note.id === id);
+    chapter.notes[index] = newNote
+    saveChapter(chapter.chapterNumber, chapter.notes)
   };
 
   useEffect(() => {
     setSummary(chapter.summary);
   }, [chapter]);
-
+  
   return (
     <>
       <h3>Chapter {chapter.chapterNumber}</h3>
