@@ -8,6 +8,7 @@ function Note({ note, saveNote }) {
   const [noteType, setNoteType] = useState(note.noteType);
   const [content, setContent] = useState(note.content);
   const [pageNumber, setPageNumber] = useState(note.pageNumber);
+  const [myReaction, setMyReaction] = useState(note.myReaction);
 
   return (
     <div>
@@ -40,6 +41,12 @@ function Note({ note, saveNote }) {
           onChange={(event) => setContent(event.target.value)}
           value={content}
         ></textarea>
+        <textarea
+          id='myReaction'
+          disabled={!isNoteEditable}
+          onChange={(event) => setMyReaction(event.target.value)}
+          value={myReaction}
+        ></textarea>
         <label htmlFor='pageNumber'>Page#</label>
         <input
           type='number'
@@ -55,6 +62,7 @@ function Note({ note, saveNote }) {
             saveNote(note.id, {
               noteType,
               content,
+              myReaction,
               pageNumber,
               id: note.id,
               new: false,

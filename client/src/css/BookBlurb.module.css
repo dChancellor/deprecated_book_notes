@@ -1,0 +1,15 @@
+@import 'vars.css';
+
+
+.book {
+  color: var(--clr-neutral-900);
+  padding:15px;
+  width:90%;
+}
+
+.activated {
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-900);
+    margin:auto;
+    border-radius:10px;
+  }

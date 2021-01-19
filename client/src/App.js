@@ -1,35 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BookBlurb from './components/BookBlurb';
 import Book from './views/Book';
 import AddBook from './views/AddBook';
+import DEVpreloadedBooks from './lib/books.js';
+import style from './css/App.module.css'
 
 function App() {
-  const [bookshelf, defineBookshelf] = useState([]);
+  // NOTE Preloaded books intended for serverless demo functionality only - remove for personal production
+  const [bookshelf, defineBookshelf] = useState(DEVpreloadedBooks);
   const [activeBook, setActiveBook] = useState();
   const [isAddBookVisible, setAddBookVisible] = useState(false);
-
-  const addFakeBooks = () => {
-    defineBookshelf([
-      ...bookshelf,
-      {
-        id: 1111111,
-        title: 'Test Title',
-        author: 'Derek Holtzman',
-        image: '',
-        categories: 'Fiction',
-        chapters: [],
-      },
-    ]);
-  };
 
   const saveAnnotation = (newChapters) => {
     let index = bookshelf.findIndex((book) => book.id === activeBook.id);
     let revisedBook = {
       ...bookshelf[index],
-      ...{chapters:[...newChapters]}
+      ...{ chapters: [...newChapters] },
     };
-    bookshelf.splice(index, 1, revisedBook)
-    setActiveBook(bookshelf[index])
+    bookshelf.splice(index, 1, revisedBook);
+    setActiveBook(bookshelf[index]);
   };
 
   const deleteBook = (id) => {
@@ -61,12 +50,7 @@ function App() {
 
   return (
     <>
-      <button onClick={() => addFakeBooks()}>Populate</button>
-      <button onClick={() => setAddBookVisible(!isAddBookVisible)}>
-        {isAddBookVisible ? 'Cancel' : 'Add Book'}
-      </button>
-      {isAddBookVisible && <AddBook addBook={addBook} />}
-      <section>
+      <section className={style.bookBar}>
         {bookshelf &&
           bookshelf.map((book) => (
             <BookBlurb
@@ -77,6 +61,10 @@ function App() {
               deleteBook={deleteBook}
             />
           ))}
+        <button onClick={() => setAddBookVisible(!isAddBookVisible)}>
+          Add Book
+        </button>
+        {isAddBookVisible && <AddBook addBook={addBook} />}
       </section>
       <section>
         {activeBook && (
