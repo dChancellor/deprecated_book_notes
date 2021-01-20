@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+button {
+  all: revert;
+}
+:root {
+  --clr-neutral-100: #e1e7e9;
+  --clr-neutral-300: #a3a7a9;
+  --clr-neutral-600: #708387;
+  --clr-neutral-900: #506066;
+  --clr-button-warning: #a95d5d;
+  --clr-button-blue: #7191ae;
+  --clr-button-blue-focus: #87aed1;
+  --clr-button-blue-clicked: #5d758a;
+  --clr-button-green: #71ae98;
+  --clr-button-green-focus: #87bda9;
+  --clr-button-green-clicked: #51806d;
+}

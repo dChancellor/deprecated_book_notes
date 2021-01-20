@@ -2,18 +2,22 @@ import style from '../css/BookBlurb.module.css';
 
 function BookBlurb({ book, setActiveBook, isActivated, deleteBook }) {
   return (
-    <div
-      className={`${style.book} ${isActivated && style.activated}`}
-      onClick={() => {
-        isActivated ? setActiveBook() : setActiveBook(book);
-      }}
-    >
-      <h3>{book.title}</h3>
-      <p>{book.author}</p>
+    <section className={`${style.book} ${isActivated && style.activated}`}>
+      <div
+        className={style.text}
+        onClick={() => {
+          isActivated ? setActiveBook() : setActiveBook(book);
+        }}
+      >
+        <h3>{book.title}</h3>
+        <p>{book.author}</p>
+      </div>
       {isActivated && (
-        <button onClick={() => deleteBook(book.id)}>Delete</button>
+        <div className={style.button} onClick={() => deleteBook(book.id)}>
+          X
+        </div>
       )}
-    </div>
+    </section>
   );
 }
 

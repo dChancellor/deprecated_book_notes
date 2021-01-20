@@ -1,0 +1,17 @@
+@import 'universals.css';
+
+.svgContainer {
+  all: initial;
+  padding: 4px;
+}
+.deleteContainer{
+  background-color:var(--clr-button-warning);
+  border-radius:7px;
+}
+
+.svg {
+  color: var(--clr-neutral-100);
+  stroke: var(--clr-neutral-100);
+  width: 22px;
+  height: 22px;
+}

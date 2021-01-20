@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import style from '../css/BookNotes.module.css';
+import style from '../css/BookBlurb.module.css';
 import { noteTypes } from '../lib/constants';
 
 function Note({ note, saveNote }) {

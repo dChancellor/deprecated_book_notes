@@ -1,21 +1,61 @@
-@import 'vars.css';
+@import 'universals.css';
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+body {
+  background-color: var(--clr-neutral-900);
 }
-
-body,
-h1,
-h2,
-h3,
-p {
-  margin: 0;
+.app {
+  display: flex;
 }
-
-.bookBar {
-  width: min(20%, 20.5rem);
+.sidebar {
+  width: min(70%, 27rem);
   background-color: var(--clr-neutral-100);
+  height: 100vh;
+  padding: 25px 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.buttonRow {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 25px;
+}
+.button {
+  width: min(50%, 100px);
+  padding: 15px;
+  text-align: center;
+  border: none;
+  color: var(--clr-neutral-100);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
+.filterButton {
+  background-color: var(--clr-button-blue);
+}
+.filterButton:hover {
+  background-color: var(--clr-button-blue-focus);
+}
+.filterButton:focus {
+  background-color: var(--clr-button-blue-focus);
+}
+.filterButton:active {
+  background-color: var(--clr-button-blue-clicked);
+}
+.addButton {
+  background-color: var(--clr-button-green);
+}
+.addButton:focus {
+  background-color: var(--clr-button-green-focus);
+}
+.addButton:hover {
+  background-color: var(--clr-button-green-focus);
+}
+.addButton:active {
+  background-color: var(--clr-button-green-clicked);
+}
+.main {
+  padding-left: 70px;
+  width:80%;
+}

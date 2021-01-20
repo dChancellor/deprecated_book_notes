@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Filter from '../components/Filter';
-import style from '../css/BookSelector.module.css';
+import style from '../css/BookBlurb.module.css';
 
 let filterCounter = 0;
 

@@ -1,5 +1,5 @@
 import Chapter from '../components/Chapter';
-import style from '../css/BookNotes.module.css';
+import style from '../css/BookBlurb.module.css';
 
 function Book({ chapters, saveAnnotation }) {
   const addChapter = () => {
@@ -15,7 +15,7 @@ function Book({ chapters, saveAnnotation }) {
   };
 
   const saveChapter = (chapterNumber, newNotes) => {
-    chapters[chapterNumber-1].notes = newNotes
+    chapters[chapterNumber-1] = {...chapters[chapterNumber-1], ...newNotes}
     saveAnnotation(chapters);
   };
 

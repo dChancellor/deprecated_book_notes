@@ -1,15 +1,38 @@
-@import 'vars.css';
-
+@import 'universals.css';
 
 .book {
   color: var(--clr-neutral-900);
-  padding:15px;
-  width:90%;
+  padding: 20px;
+  width: 90%;
+  margin: 0px auto 15px auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+.text{
+  flex-basis:90%;
+  margin-right:10px;
+}
+.text h3{
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  margin-bottom:7px;
+}
+.text p{
+  color: var(--clr-neutral-300);
+  text-align: right;
+
+}
+.activated {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
 }
 
-.activated {
-    color: var(--clr-neutral-100);
-    background-color: var(--clr-neutral-900);
-    margin:auto;
-    border-radius:10px;
-  }
+.button {
+  height: 20px;
+  width: 20px;
+  background-color: var(--clr-button-warning);
+  color: var(--clr-neutral-100);
+  text-align:center;
+}

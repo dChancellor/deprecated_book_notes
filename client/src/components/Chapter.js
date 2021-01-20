@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Note from '../components/Note';
-import style from '../css/BookNotes.module.css';
+import EditButton from '../components/EditButton';
+import DeleteButton from '../components/DeleteButton';
+import style from '../css/Chapter.module.css';
 import { noteTypes } from '../lib/constants';
 
 function Chapter({ chapter, saveChapter }) {
@@ -21,32 +23,36 @@ function Chapter({ chapter, saveChapter }) {
   };
 
   const saveNote = (id, newNote) => {
-    let index = chapter.notes.findIndex(note => note.id === id);
-    chapter.notes[index] = newNote
-    saveChapter(chapter.chapterNumber, chapter.notes)
+    let index = chapter.notes.findIndex((note) => note.id === id);
+    chapter.notes[index] = newNote;
+    saveChapter(chapter.chapterNumber, chapter.notes);
   };
 
   useEffect(() => {
     setSummary(chapter.summary);
   }, [chapter]);
-  
+
   return (
-    <>
-      <h3>Chapter {chapter.chapterNumber}</h3>
-      <textarea
-        value={summary}
-        onChange={(event) => setSummary(event.target.value)}
-        disabled={isSummaryDisabled}
-        placeholder={'Write a summary...'}
-      ></textarea>
-      <button
-        onClick={() => {
-          saveChapter(chapter.chapterNumber, { summary });
-          setSummaryDisabled(!isSummaryDisabled);
-        }}
-      >
-        {isSummaryDisabled ? 'Edit' : 'Save'}
-      </button>
+    <section className={style.chapter}>
+      <div className={style.titleBar}>
+        <h3>Chapter {chapter.chapterNumber}:</h3>
+        <textarea
+          value={summary}
+          onChange={(event) => setSummary(event.target.value)}
+          disabled={isSummaryDisabled}
+          placeholder={'Write a summary...'}
+        ></textarea>
+        <section className={style.buttonRow}>
+          <EditButton
+            text={isSummaryDisabled ? 'Edit' : 'Save'}
+            activate={() => {
+              setSummaryDisabled(!isSummaryDisabled);
+              saveChapter(chapter.chapterNumber, { summary });
+            }}
+          />
+          {!isSummaryDisabled && <DeleteButton />}
+        </section>
+      </div>
       <nav>
         {noteTypes.map((noteType, index) => (
           <button
@@ -63,7 +69,7 @@ function Chapter({ chapter, saveChapter }) {
           <Note saveNote={saveNote} key={note.id} note={note} />
         ))}
       </section>
-    </>
+    </section>
   );
 }
 
