@@ -1,5 +1,5 @@
-import style from '../css/Buttons.module.css';
-import Pencil from '../assets/Pencil.js';
+import style from './css/edit-buttons.module.css';
+import Pencil from './svg/Pencil.js';
 
 function EditButton({ activate }) {
   return (

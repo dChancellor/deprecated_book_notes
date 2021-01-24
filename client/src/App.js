@@ -1,88 +1,59 @@
-import { useState } from 'react';
-import BookBlurb from './components/BookBlurb';
+//Hooks
+import { useState, createContext, useEffect } from 'react';
+import useEditBook from './hooks/editBook';
+//Components
+import Sidebar from './views/Sidebar';
+import PinnedNote from './views/PinnedNote';
 import Book from './views/Book';
-import AddBook from './views/AddBook';
-import DEVpreloadedBooks from './lib/books.js';
+import EditBookModal from './components/Modals/EditBookModal';
+import AddBookModal from './components/Modals/AddBookModal.js';
+import FilterModal from './components/Modals/FilterModal';
+//CSS
 import style from './css/App.module.css';
+//Data
+import DEVpreloadedBooks from './lib/books.js';
+
+const ActiveBookContext = createContext();
 
 function App() {
-  // NOTE Preloaded books intended for serverless demo functionality only - remove for personal production
   const [bookshelf, defineBookshelf] = useState(DEVpreloadedBooks);
-  const [activeBook, setActiveBook] = useState();
-  const [isAddBookVisible, setAddBookVisible] = useState(false);
+  const [activeBook, setActiveBook] = useState({});
+  const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [isFilterModalOpen, setFilterModalOpen] = useState(false);
+  const [isAddBookModalOpen, setAddBookModalOpen] = useState(false);
+  const [bookEdits, defineBookEdits] = useState({});
+  const { data: editedBook } = useEditBook(bookEdits);
 
-  const saveAnnotation = (newChapters) => {
-    let index = bookshelf.findIndex((book) => book.id === activeBook.id);
-    let revisedBook = {
-      ...bookshelf[index],
-      ...{ chapters: [...newChapters] },
-    };
-    bookshelf.splice(index, 1, revisedBook);
-    setActiveBook(bookshelf[index]);
+  const saveEdits = (editType, edits, id) => {
+    defineBookEdits({ activeBook, editType, edits, id });
   };
 
-  const deleteBook = (id) => {
-    let index = bookshelf.findIndex((book) => book.id === id);
-    bookshelf.splice(index, 1);
-  };
-
-  const addBook = (newBook) => {
-    let doesBookExist = bookshelf.find(
-      (book) => book.id === newBook.industryIdentifiers[0].identifier
-    );
-    if (!doesBookExist) {
-      defineBookshelf([
-        ...bookshelf,
-        {
-          id: newBook.industryIdentifiers[1].identifier,
-          title: newBook.title,
-          author: newBook.authors,
-          image: newBook.imageLinks.thumbnail,
-          categories: newBook.categories,
-          chapters: [],
-        },
-      ]);
-    } else {
-      console.log('This book already exists');
-    }
-    setAddBookVisible(false);
-  };
+  useEffect(() => {
+    console.log(editedBook);
+    setActiveBook(editedBook);
+  }, [editedBook]);
 
   return (
-    <main className={style.app}>
-      <section className={style.sidebar}>
-        <section className={style.books}>
-          {bookshelf &&
-            bookshelf.map((book) => (
-              <BookBlurb
-                isActivated={book.id === activeBook?.id ? true : false}
-                setActiveBook={setActiveBook}
-                key={book.id}
-                book={book}
-                deleteBook={deleteBook}
-              />
-            ))}
+    <ActiveBookContext.Provider value={{ activeBook, saveEdits }}>
+      <main className={style.app}>
+        <Sidebar
+          setFilterModalOpen={setFilterModalOpen}
+          setAddBookModalOpen={setAddBookModalOpen}
+          setEditModalOpen={setEditModalOpen}
+          bookshelf={bookshelf}
+          activeBook={activeBook}
+          setActiveBook={setActiveBook}
+        />
+        {isEditModalOpen && <EditBookModal />}
+        {isAddBookModalOpen && <AddBookModal />}
+        {isFilterModalOpen && <FilterModal />}
+        <section className={style.main}>
+          <PinnedNote />
+          {activeBook && <Book />}
         </section>
-        <section className={style.buttonRow}>
-          <button className={`${style.filterButton} ${style.button}`} onClick={() => console.log('This is how you filter books')}>
-            Filter Books
-          </button>
-          <button className={`${style.addButton} ${style.button}`} onClick={() => setAddBookVisible(!isAddBookVisible)}>
-            Add Book
-          </button>
-        </section>
-        {isAddBookVisible && <AddBook addBook={addBook} />}
-      </section>
-      <section className={style.main}>
-        {activeBook && (
-          <Book
-            saveAnnotation={saveAnnotation}
-            chapters={activeBook.chapters}
-          />
-        )}
-      </section>
-    </main>
+      </main>
+    </ActiveBookContext.Provider>
   );
 }
 
-export default App;
+export { App, ActiveBookContext };

@@ -2,7 +2,7 @@ let DEVpreloadedBooks = [
   {
     id: 9780385674508,
     title: 'The Sociological Imagination',
-    author: 'C. Wright Mills',
+    authors: ['C. Wright Mills'],
     image:
       'http://books.google.com/books/content?id=sgVZCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
     categories: ['Non-Fiction', 'Sociology'],
@@ -10,6 +10,7 @@ let DEVpreloadedBooks = [
       'A meta-analyzation of sociology. Mills uses a sociological framework to study the study itself.',
     chapters: [
       {
+        id:84168,
         chapterNumber: 1,
         notes: [
           {
@@ -34,7 +35,7 @@ let DEVpreloadedBooks = [
   {
     id: 9780345339683,
     title: 'The Hobbit, Or, There and Back Again',
-    author: 'J.R.R. Tolkien',
+    authors: ['J.R.R. Tolkien'],
     image:
       'http://books.google.com/books/content?id=hFfhrCWiLSMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
     categories: ['Fiction', 'Fantasy'],
@@ -43,10 +44,19 @@ let DEVpreloadedBooks = [
   {
     id: 9780691140605,
     title: 'How Wars End',
-    author: 'Dan Reiter',
+    authors: ['Dan Reiter'],
     image:
       'http://books.google.com/books/content?id=-_Avp1TNYjMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
     categories: ['Non-Fiction', 'History', 'Political Science', 'IR'],
+    chapters: [],
+  },
+  {
+    id: 9781524762933,
+    title: 'How Democracies Die',
+    authors: ['Steven Levitsky', 'Daniel Ziblatt'],
+    image:
+      'http://books.google.com/books/content?id=iF3ODgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+    categories: ['Non-Fiction', 'Political Science'],
     chapters: [],
   },
 ];

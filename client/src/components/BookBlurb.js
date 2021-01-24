@@ -1,6 +1,12 @@
+import { useContext } from 'react';
+import { ActiveBookContext } from '../App';
+import EditButton from './EditIcons/EditButton';
+
 import style from '../css/BookBlurb.module.css';
 
-function BookBlurb({ book, setActiveBook, isActivated, deleteBook }) {
+function BookBlurb({ book, setActiveBook, isActivated }) {
+  const { setEditModalOpen } = useContext(ActiveBookContext);
+
   return (
     <section className={`${style.book} ${isActivated && style.activated}`}>
       <div
@@ -10,13 +16,11 @@ function BookBlurb({ book, setActiveBook, isActivated, deleteBook }) {
         }}
       >
         <h3>{book.title}</h3>
-        <p>{book.author}</p>
+        {book.authors.map((author) => (
+          <p key={author}>{author}</p>
+        ))}
       </div>
-      {isActivated && (
-        <div className={style.button} onClick={() => deleteBook(book.id)}>
-          X
-        </div>
-      )}
+      {isActivated && <EditButton activate={() => setEditModalOpen(true)} />}
     </section>
   );
 }

@@ -1,39 +1,24 @@
+import { useContext } from 'react';
+import { ActiveBookContext } from '../App';
+import { ChapterObject } from '../lib/constants';
 import Chapter from '../components/Chapter';
-import style from '../css/BookBlurb.module.css';
+import style from '../css/Chapter.module.css';
 
-function Book({ chapters, saveAnnotation }) {
-  const addChapter = () => {
-    let chapterCounter = chapters.length + 1;
-    saveAnnotation([
-      ...chapters,
-      {
-        chapterNumber: chapterCounter,
-        notes: [],
-        summary: '',
-      },
-    ]);
-  };
-
-  const saveChapter = (chapterNumber, newNotes) => {
-    chapters[chapterNumber-1] = {...chapters[chapterNumber-1], ...newNotes}
-    saveAnnotation(chapters);
-  };
+function Book() {
+  const { activeBook: book, saveEdits } = useContext(ActiveBookContext);
 
   return (
     <>
-      <button className={style.button} onClick={addChapter}>
+      <button
+        className={style.button}
+        onClick={() => saveEdits('chapter', new ChapterObject())}
+      >
         Add Chapter
       </button>
-      <section>
-        {chapters &&
-          chapters.map((chapter) => (
-            <Chapter
-              saveChapter={saveChapter}
-              chapter={chapter}
-              key={chapter.chapterNumber}
-            />
-          ))}
-      </section>
+      {book.chapters &&
+        book.chapters.map((chapter) => (
+          <Chapter chapter={chapter} key={chapter.id} />
+        ))}
     </>
   );
 }

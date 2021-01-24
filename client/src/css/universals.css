@@ -18,6 +18,7 @@ button {
   --clr-neutral-100: #e1e7e9;
   --clr-neutral-300: #a3a7a9;
   --clr-neutral-600: #708387;
+  --clr-neutral-700: #546f7b;
   --clr-neutral-900: #506066;
   --clr-button-warning: #a95d5d;
   --clr-button-blue: #7191ae;
@@ -26,4 +27,5 @@ button {
   --clr-button-green: #71ae98;
   --clr-button-green-focus: #87bda9;
   --clr-button-green-clicked: #51806d;
+  --clr-modal-400: #506772;
 }
