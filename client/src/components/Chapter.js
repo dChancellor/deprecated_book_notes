@@ -54,7 +54,9 @@ function Chapter({ chapter, saveChapter }) {
             <button
               className={style.button}
               key={index}
-              onClick={() => saveEdits('note', new NoteObject())}
+              onClick={() =>
+                saveEdits('note', new NoteObject(noteType), chapter.id)
+              }
             >
               {`Add ${noteType}`}
             </button>

@@ -1,28 +1,40 @@
 import { useEffect, useState } from 'react';
 
-const useEditBook = ({ activeBook: book, editType, edits, id }) => {
+const useEditBook = ({ activeBook: book, editType, edits, chapterId }) => {
   const [data, setData] = useState();
+  let editedBook = { ...book };
+  let chapterIndex = editedBook.chapters?.findIndex(
+    (chapter) => chapter.id === chapterId
+  );
 
-  const handleBook = (editedBook) => {
+  const handleBook = () => {};
+
+  const handleChapter = () => {
+    let chapters = editedBook.chapters;
+    chapterIndex === -1
+      ? chapters.push(edits)
+      : (chapters[chapterIndex] = { ...chapters[chapterIndex], ...edits });
+    let sorted = chapters.sort((a, b) => {
+      return a.chapterNumber - b.chapterNumber;
+    });
+    editedBook.chapters = sorted;
     setData(editedBook);
   };
 
-  const handleChapter = () => {
-    let index = book.chapters.findIndex((chapter) => chapter.id === id);
-    let editedBook = { ...book };
-    if (index >= 0) {
-      //Replace existing chapter
-      edits = { ...editedBook.chapters[index], ...edits };
-      editedBook.chapters[index] = edits;
-    } else {
-      //Add new chapter
-      edits.chapterNumber = editedBook.chapters.length + 1;
-      editedBook.chapters.push(edits);
-    }
-    handleBook(editedBook);
+  const handleNote = () => {
+    let noteIndex = editedBook.chapters[chapterIndex].notes.findIndex(
+      (note) => note.id === edits.id
+    );
+    let notes = editedBook.chapters[chapterIndex].notes;
+    noteIndex === -1
+      ? notes.push(edits)
+      : (notes[noteIndex] = { ...notes[noteIndex], ...edits });
+    let sorted = notes.sort((a, b) => {
+      return a.pageNumber - b.pageNumber;
+    });
+    editedBook.notes = sorted;
+    setData(editedBook);
   };
-
-  const handleNote = () => {};
 
   useEffect(() => {
     switch (editType) {

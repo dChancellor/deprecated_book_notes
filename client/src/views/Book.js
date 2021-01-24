@@ -11,7 +11,9 @@ function Book() {
     <>
       <button
         className={style.button}
-        onClick={() => saveEdits('chapter', new ChapterObject())}
+        onClick={() =>
+          saveEdits('chapter', new ChapterObject(book.chapters.length + 1))
+        }
       >
         Add Chapter
       </button>

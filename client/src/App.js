@@ -24,12 +24,12 @@ function App() {
   const [bookEdits, defineBookEdits] = useState({});
   const { data: editedBook } = useEditBook(bookEdits);
 
-  const saveEdits = (editType, edits, id) => {
-    defineBookEdits({ activeBook, editType, edits, id });
+  const saveEdits = (editType, edits, chapterId) => {
+    defineBookEdits({ activeBook, editType, edits, chapterId });
   };
 
   useEffect(() => {
-    console.log(editedBook);
+    console.log('final', editedBook);
     setActiveBook(editedBook);
   }, [editedBook]);
 
