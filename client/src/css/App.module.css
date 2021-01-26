@@ -7,11 +7,14 @@ body {
   display: flex;
 }
 .pinnedNote {
-  height: 6rem;
+  height: 10rem;
   width: 100%;
   background-color: var(--clr-neutral-700);
   margin-bottom: 30px;
 }
 .main {
   width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  height:100vh;
 }

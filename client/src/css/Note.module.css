@@ -1,0 +1,41 @@
+@import 'universals.css';
+
+.note {
+  width: 80%;
+  margin: 10px 0px;
+}
+.dot {
+  width: 25px;
+  height: 25px;
+}
+.downArrow {
+  all: initial;
+  width: 2.5rem;
+  font-size: 15px;
+  display: flex;
+  flex-flow: column;
+  margin-right: 5px;
+  color: var(--clr-neutral-300);
+}
+.upperWindow {
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 1.2rem;
+  justify-content: space-between;
+  padding: 4px 15px;
+  align-items: center;
+}
+
+.textarea {
+  background-color: var(--clr-neutral-600);
+  border: none;
+  color: var(--clr-neutral-100);
+  resize: vertical;
+  padding: 7px;
+  height: 4.5rem;
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 80%;
+}

@@ -1,12 +1,16 @@
-import { useState } from 'react';
 import BookBlurb from '../components/BookBlurb';
 
 import style from '../css/Sidebar.module.css';
 
-function Sidebar({ activeBook, bookshelf, setActiveBook }) {
-  const [isAddModalVisible, setAddModalVisible] = useState(false);
-  const [isFilterModalVisible, setFilterModalVisible] = useState(false);
-
+function Sidebar({
+  activeBook,
+  bookshelf,
+  setActiveBook,
+  setAddBookModalOpen,
+  setFilterModalOpen,
+  isFilterModalOpen,
+  isAddBookModalOpen,
+}) {
   return (
     <section className={style.sidebar}>
       <section className={style.books}>
@@ -23,13 +27,13 @@ function Sidebar({ activeBook, bookshelf, setActiveBook }) {
       <section className={style.buttonRow}>
         <button
           className={`${style.filterButton} ${style.button}`}
-          onClick={() => setFilterModalVisible(!isFilterModalVisible)}
+          onClick={() => setFilterModalOpen(!isFilterModalOpen)}
         >
           Filter Books
         </button>
         <button
           className={`${style.addButton} ${style.button}`}
-          onClick={() => setAddModalVisible(!isAddModalVisible)}
+          onClick={() => setAddBookModalOpen(!isAddBookModalOpen)}
         >
           Add Book
         </button>

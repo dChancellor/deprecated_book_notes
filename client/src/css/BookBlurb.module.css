@@ -2,9 +2,9 @@
 
 .book {
   color: var(--clr-neutral-900);
-  padding: 20px;
+  padding: 15px;
   width: 90%;
-  margin: 0px auto 15px auto;
+  margin: 0px auto 10px auto;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
@@ -13,11 +13,10 @@
 }
 .text {
   flex-basis: 90%;
-  margin-right: 20px;
 }
 .text h3 {
-  font-size: clamp(1rem, 1.25vw, 1.25rem);
-  margin-bottom: 7px;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  margin-bottom: 3px;
 }
 .text p {
   color: var(--clr-neutral-300);
@@ -26,4 +25,6 @@
 .activated {
   color: var(--clr-neutral-100);
   background-color: var(--clr-neutral-900);
+  padding-right:10px;
+  gap:5px;
 }

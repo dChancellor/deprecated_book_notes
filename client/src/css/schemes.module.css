@@ -1,0 +1,146 @@
+.definition.superdark {
+  background-color: var(--clr-definition-600);
+  color: var(--clr-definition-text);
+}
+.definition.superdark.button:hover,
+.definition.superdark.button:focus {
+  background-color: var(--clr-definition-200);
+}
+.definition.superdark.button:active {
+  background-color: var(--clr-definition-600);
+}
+.connection.superdark {
+  background-color: var(--clr-connection-600);
+  color: var(--clr-connection-text);
+}
+.connection.superdark.button:hover,
+.connection.superdark.button:focus {
+  background-color: var(--clr-connection-200);
+}
+.connection.superdark.button:active {
+  background-color: var(--clr-connection-600);
+}
+.concept.superdark {
+  background-color: var(--clr-concept-600);
+  color: var(--clr-concept-text);
+}
+.concept.superdark.button:hover,
+.concept.superdark.button:focus {
+  background-color: var(--clr-concept-200);
+}
+.concept.superdark.button:active {
+  background-color: var(--clr-concept-600);
+}
+.thought.superdark {
+  background-color: var(--clr-thought-600);
+  color: var(--clr-thought-text);
+}
+.thought.superdark.button:hover,
+.thought.superdark.button:focus {
+  background-color: var(--clr-thought-200);
+}
+.thought.superdark.button:active {
+  background-color: var(--clr-thought-600);
+}
+.quote.superdark {
+  background-color: var(--clr-quote-600);
+  color: var(--clr-quote-text);
+}
+.quote.superdark.button:hover,
+.quote.superdark.button:focus {
+  background-color: var(--clr-quote-200);
+}
+.quote.superdark.button:active {
+  background-color: var(--clr-quote-600);
+}
+.definition.dark {
+  background-color: var(--clr-definition-400);
+  color: var(--clr-definition-text);
+}
+.definition.dark.button:hover,
+.definition.dark.button:focus {
+  background-color: var(--clr-definition-200);
+}
+.definition.dark.button:active {
+  background-color: var(--clr-definition-600);
+}
+.connection.dark {
+  background-color: var(--clr-connection-400);
+  color: var(--clr-connection-text);
+}
+.connection.dark.button:hover,
+.connection.dark.button:focus {
+  background-color: var(--clr-connection-200);
+}
+.connection.dark.button:active {
+  background-color: var(--clr-connection-600);
+}
+.concept.dark {
+  background-color: var(--clr-concept-400);
+  color: var(--clr-concept-text);
+}
+.concept.dark.button:hover,
+.concept.dark.button:focus {
+  background-color: var(--clr-concept-200);
+}
+.concept.dark.button:active {
+  background-color: var(--clr-concept-600);
+}
+.thought.dark {
+  background-color: var(--clr-thought-400);
+  color: var(--clr-thought-text);
+}
+.thought.dark.button:hover,
+.thought.dark.button:focus {
+  background-color: var(--clr-thought-200);
+}
+.thought.dark.button:active {
+  background-color: var(--clr-thought-600);
+}
+.quote.dark {
+  background-color: var(--clr-quote-400);
+  color: var(--clr-quote-text);
+}
+.quote.dark.button:hover,
+.quote.dark.button:focus {
+  background-color: var(--clr-quote-200);
+}
+.quote.dark.button:active {
+  background-color: var(--clr-quote-600);
+}
+.definition.light {
+  background-color: var(--clr-definition-200);
+  color: var(--clr-definition-text);
+}
+.connection.light {
+  background-color: var(--clr-connection-200);
+  color: var(--clr-connection-text);
+}
+.concept.light {
+  background-color: var(--clr-concept-200);
+  color: var(--clr-concept-text);
+}
+.thought.light {
+  background-color: var(--clr-thought-200);
+  color: var(--clr-thought-text);
+}
+.quote.light {
+  background-color: var(--clr-quote-200);
+  color: var(--clr-quote-text);
+}
+
+.definition.lightText {
+  color: var(--clr-definition-200);
+}
+.connection.lightText {
+  color: var(--clr-connection-200);
+}
+.concept.lightText {
+  color: var(--clr-concept-200);
+}
+.thought.lightText {
+  color: var(--clr-thought-200);
+}
+.quote.lightText {
+  color: var(--clr-quote-200);
+}

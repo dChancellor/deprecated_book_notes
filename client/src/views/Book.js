@@ -9,6 +9,12 @@ function Book() {
 
   return (
     <>
+      <div className={style.chapters}>
+        {book.chapters &&
+          book.chapters.map((chapter) => (
+            <Chapter chapter={chapter} key={chapter.id} />
+          ))}
+      </div>
       <button
         className={style.button}
         onClick={() =>
@@ -17,10 +23,6 @@ function Book() {
       >
         Add Chapter
       </button>
-      {book.chapters &&
-        book.chapters.map((chapter) => (
-          <Chapter chapter={chapter} key={chapter.id} />
-        ))}
     </>
   );
 }

@@ -1,13 +1,23 @@
 @import '../../../css/universals.css';
 
+.editButtons {
+  display: flex;
+  justify-content:center;
+}
+.buttonColumn {
+  flex-flow: column nowrap;
+}
+.buttonRow {
+  flex-flow: row nowrap;
+}
 .svgContainer {
   all: initial;
   padding: 4px;
 }
 
-.deleteContainer{
-  background-color:var(--clr-button-warning);
-  border-radius:7px;
+.deleteContainer {
+  background-color: var(--clr-button-warning);
+  border-radius: 7px;
 }
 
 .svg {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SaveButton from './SaveButton';
-import EditButton from './SaveButton';
+import EditButton from './EditButton';
 import DeleteButton from './DeleteButton';
 
 import style from './css/edit-buttons.module.css';
@@ -9,7 +9,7 @@ function EditBar({ action, isVertical }) {
   const [isEditable, setIsEditable] = useState(false);
 
   return (
-    <section className={isVertical ? style.buttonColumn : style.buttonRow}>
+    <section className={`${style.editButtons} ${isVertical ? style.buttonColumn : style.buttonRow}`}>
       {isEditable ? (
         <>
           <SaveButton

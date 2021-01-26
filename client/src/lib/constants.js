@@ -19,4 +19,5 @@ export function NoteObject(noteType) {
   this.content = '';
   this.pageNumber = 0;
   this.new = true;
+  this.myReaction = '';
 }

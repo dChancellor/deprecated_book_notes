@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
 *,
 *::before,
 *::after {
@@ -10,6 +12,7 @@ h2,
 h3,
 p {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 button {
   all: revert;
@@ -27,5 +30,28 @@ button {
   --clr-button-green: #71ae98;
   --clr-button-green-focus: #87bda9;
   --clr-button-green-clicked: #51806d;
+  --clr-button-orange: #d1665a;
+  --clr-button-orange-focus: #e68b81;
+  --clr-button-orange-clicked: #944a42;
   --clr-modal-400: #506772;
+  --clr-definition-text: #686548;
+  --clr-definition-200: #e3e2db;
+  --clr-definition-400: #d3cca4;
+  --clr-definition-600: #baa700;
+  --clr-connection-text: #4a584b;
+  --clr-connection-200: #e0e3db;
+  --clr-connection-400: #b5c0b1;
+  --clr-connection-600: #66b369;
+  --clr-quote-text: #5e4848;
+  --clr-quote-200: #e3dbdb;
+  --clr-quote-400: #bfb5b5;
+  --clr-quote-600: #b36666;
+  --clr-thought-text: #5d485e;
+  --clr-thought-200: #dedbe3;
+  --clr-thought-400: #bbb5bf;
+  --clr-thought-600: #8866b3;
+  --clr-concept-text: #58637a;
+  --clr-concept-200: #dbe2e3;
+  --clr-concept-400: #b5b9bf;
+  --clr-concept-600: #668eb3;
 }

@@ -18,9 +18,9 @@ const ActiveBookContext = createContext();
 function App() {
   const [bookshelf, defineBookshelf] = useState(DEVpreloadedBooks);
   const [activeBook, setActiveBook] = useState({});
-  const [isEditModalOpen, setEditModalOpen] = useState(false);
-  const [isFilterModalOpen, setFilterModalOpen] = useState(false);
-  const [isAddBookModalOpen, setAddBookModalOpen] = useState(false);
+  const [isEditModalOpen, toggleEditModalOpen] = useState(false);
+  const [isFilterModalOpen, toggleFilterModalOpen] = useState(false);
+  const [isAddBookModalOpen, toggleAddBookModalOpen] = useState(false);
   const [bookEdits, defineBookEdits] = useState({});
   const { data: editedBook } = useEditBook(bookEdits);
 
@@ -29,7 +29,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log('final', editedBook);
     setActiveBook(editedBook);
   }, [editedBook]);
 
@@ -37,9 +36,11 @@ function App() {
     <ActiveBookContext.Provider value={{ activeBook, saveEdits }}>
       <main className={style.app}>
         <Sidebar
-          setFilterModalOpen={setFilterModalOpen}
-          setAddBookModalOpen={setAddBookModalOpen}
-          setEditModalOpen={setEditModalOpen}
+          toggleFilterModalOpen={toggleFilterModalOpen}
+          toggleAddBookModalOpen={toggleAddBookModalOpen}
+          toggleEditModalOpen={toggleEditModalOpen}
+          isFilterModalOpen={isFilterModalOpen}
+          isAddBookModalOpen={isAddBookModalOpen}
           bookshelf={bookshelf}
           activeBook={activeBook}
           setActiveBook={setActiveBook}
