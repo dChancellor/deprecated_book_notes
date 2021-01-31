@@ -1,0 +1,19 @@
+
+
+
+
+
+.notes {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 15px;
+  width: 90%;
+}
+
+.buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+

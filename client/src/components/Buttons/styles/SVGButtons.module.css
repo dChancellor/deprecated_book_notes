@@ -1,0 +1,46 @@
+@import '../../../styles/universals.css';
+
+.editButtons {
+  display: flex;
+}
+.buttonColumn {
+  flex-flow: column nowrap;
+}
+.buttonRow {
+  flex-flow: row nowrap;
+}
+.svgContainer {
+  all: initial;
+  padding: 4px;
+  cursor: pointer;
+}
+.svg {
+  color: var(--clr-neutral-100);
+  stroke: var(--clr-neutral-100);
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+.trash {
+  background-color: var(--clr-button-warning);
+  border-radius: 7px;
+}
+.pin {
+  stroke: rgb(238, 192, 192);
+  transform: rotate(90deg);
+  fill: rgb(144, 114, 114);
+  width: 32px;
+  height: 32px;
+}
+.pin:hover {
+  fill: rgb(238, 110, 110);
+}
+.pinned {
+  fill: red;
+}
+.chevronDown {
+  width: 2.5rem;
+  font-size: 25px;
+  display: flex;
+  flex-flow: column;
+}

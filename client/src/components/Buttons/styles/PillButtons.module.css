@@ -1,0 +1,61 @@
+@import '../../../styles/universals.css';
+
+.button {
+  all: initial;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--clr-neutral-100);
+  width: min(50%, 120px);
+  padding: 15px 10px;
+  text-align: center;
+  font-size: clamp(1rem, 5vw, 1.2rem);
+  user-select: none;
+}
+.addBook {
+  background-color: var(--clr-button-blue);
+}
+.addBook:hover,
+.addBook:focus {
+  background-color: var(--clr-button-blue-focus);
+  padding: 15px;
+}
+.addBook:focus {
+  outline: 3px var(--clr-button-blue-focus) solid;
+  padding: 15px;
+  outline-offset: 3px;
+}
+.addBook:active {
+  background-color: var(--clr-button-blue-active);
+}
+.filter {
+  background-color: var(--clr-button-green);
+}
+.filter:hover,
+.filter:focus {
+  background-color: var(--clr-button-green-focus);
+}
+.filter:focus {
+  outline: 3px var(--clr-button-green-focus) solid;
+  padding: 15px;
+  outline-offset: 3px;
+}
+.filter:active {
+  background-color: var(--clr-button-green-active);
+}
+
+.addChapter {
+  background-color: var(--clr-button-orange);
+  margin: auto 0px 20px 15px
+}
+.addChapter:hover,
+.addChapter:focus {
+  background-color: var(--clr-button-orange-focus);
+}
+.addChapter:focus {
+  outline: 3px var(--clr-button-orange-focus) solid;
+  padding: 15px;
+  outline-offset: 3px;
+}
+.addChapter:active {
+  background-color: var(--clr-button-orange-active);
+}

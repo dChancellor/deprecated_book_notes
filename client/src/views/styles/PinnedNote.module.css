@@ -1,0 +1,6 @@
+@import '../../styles/universals.css';
+
+.background{
+    background-color:var(--clr-neutral-700);
+    height:150px;
+}

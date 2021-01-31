@@ -1,33 +1,36 @@
 import { useState } from 'react';
-import SaveButton from './SaveButton';
-import EditButton from './EditButton';
-import DeleteButton from './DeleteButton';
+import SVGButton from './elements/SVGButton';
 
-import style from './css/edit-buttons.module.css';
+import style from './styles/SVGButtons.module.css';
 
 function EditBar({ action, isVertical }) {
   const [isEditable, setIsEditable] = useState(false);
 
   return (
-    <section className={`${style.editButtons} ${isVertical ? style.buttonColumn : style.buttonRow}`}>
+    <section
+      className={`${style.editButtons} ${
+        isVertical ? style.buttonColumn : style.buttonRow
+      }`}
+    >
       {isEditable ? (
         <>
-          <SaveButton
-            isEditable={isEditable}
+          <SVGButton
+            svgType={'Save'}
             activate={() => {
               setIsEditable(!isEditable);
               action('save');
             }}
           />
-          <DeleteButton
+          <SVGButton
+            svgType={'Trash'}
             activate={() => {
               action('delete');
             }}
           />
         </>
       ) : (
-        <EditButton
-          isEditable={isEditable}
+        <SVGButton
+          svgType={'Pencil'}
           activate={() => {
             setIsEditable(!isEditable);
             action('edit');

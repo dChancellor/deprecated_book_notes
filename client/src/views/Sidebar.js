@@ -1,13 +1,15 @@
-import BookBlurb from '../components/BookBlurb';
+import Blurb from '../components/Sidebar/Blurb';
+import PillButton from '../components/Buttons/elements/PillButton';
 
-import style from '../css/Sidebar.module.css';
+import style from './styles/Sidebar.module.css';
 
 function Sidebar({
+  pinnedBook,
   activeBook,
   bookshelf,
   setActiveBook,
-  setAddBookModalOpen,
-  setFilterModalOpen,
+  toggleAddBookModal,
+  toggleFilterModal,
   isFilterModalOpen,
   isAddBookModalOpen,
 }) {
@@ -16,7 +18,8 @@ function Sidebar({
       <section className={style.books}>
         {bookshelf &&
           bookshelf.map((book) => (
-            <BookBlurb
+            <Blurb
+              isPinned={book.id === pinnedBook?.id ? true : false}
               isActivated={book.id === activeBook?.id ? true : false}
               setActiveBook={setActiveBook}
               key={book.id}
@@ -25,18 +28,16 @@ function Sidebar({
           ))}
       </section>
       <section className={style.buttonRow}>
-        <button
-          className={`${style.filterButton} ${style.button}`}
-          onClick={() => setFilterModalOpen(!isFilterModalOpen)}
-        >
-          Filter Books
-        </button>
-        <button
-          className={`${style.addButton} ${style.button}`}
-          onClick={() => setAddBookModalOpen(!isAddBookModalOpen)}
-        >
-          Add Book
-        </button>
+        <PillButton
+          styles={`filter`}
+          activate={() => toggleFilterModal(!isFilterModalOpen)}
+          text={'Filter Books'}
+        />
+        <PillButton
+          styles={`addBook`}
+          activate={() => toggleAddBookModal(!isAddBookModalOpen)}
+          text={'Add Book'}
+        />
       </section>
     </section>
   );

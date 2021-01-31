@@ -9,7 +9,7 @@ import EditBookModal from './components/Modals/EditBookModal';
 import AddBookModal from './components/Modals/AddBookModal.js';
 import FilterModal from './components/Modals/FilterModal';
 //CSS
-import style from './css/App.module.css';
+import style from './styles/App.module.css';
 //Data
 import DEVpreloadedBooks from './lib/books.js';
 
@@ -18,9 +18,10 @@ const ActiveBookContext = createContext();
 function App() {
   const [bookshelf, defineBookshelf] = useState(DEVpreloadedBooks);
   const [activeBook, setActiveBook] = useState({});
-  const [isEditModalOpen, toggleEditModalOpen] = useState(false);
-  const [isFilterModalOpen, toggleFilterModalOpen] = useState(false);
-  const [isAddBookModalOpen, toggleAddBookModalOpen] = useState(false);
+  const [pinnedBook, setPinnedBook] = useState({});
+  const [isEditModalOpen, toggleEditModal] = useState(false);
+  const [isFilterModalOpen, toggleFilterModal] = useState(false);
+  const [isAddBookModalOpen, toggleAddBookModal] = useState(false);
   const [bookEdits, defineBookEdits] = useState({});
   const { data: editedBook } = useEditBook(bookEdits);
 
@@ -33,15 +34,18 @@ function App() {
   }, [editedBook]);
 
   return (
-    <ActiveBookContext.Provider value={{ activeBook, saveEdits }}>
+    <ActiveBookContext.Provider
+      value={{ toggleEditModal, activeBook, saveEdits, setPinnedBook }}
+    >
       <main className={style.app}>
         <Sidebar
-          toggleFilterModalOpen={toggleFilterModalOpen}
-          toggleAddBookModalOpen={toggleAddBookModalOpen}
-          toggleEditModalOpen={toggleEditModalOpen}
+          toggleFilterModal={toggleFilterModal}
+          toggleAddBookModal={toggleAddBookModal}
+          toggleEditModal={toggleEditModal}
           isFilterModalOpen={isFilterModalOpen}
           isAddBookModalOpen={isAddBookModalOpen}
           bookshelf={bookshelf}
+          pinnedBook={pinnedBook}
           activeBook={activeBook}
           setActiveBook={setActiveBook}
         />

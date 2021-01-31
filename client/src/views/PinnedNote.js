@@ -1,7 +1,8 @@
-import style from '../css/App.module.css'
+import style from './styles/PinnedNote.module.css'
+
 function PinnedNote() {
     return (
-        <section className={style.pinnedNote}>
+        <section className={style.background}>
 
         </section>
     )

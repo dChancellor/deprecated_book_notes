@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { ActiveBookContext } from '../../App';
-import DeleteButton from '../EditIcons/DeleteButton';
-import AddButton from '../EditIcons/AddButton';
-import style from './css/modals.module.css';
+// import DeleteButton from '../EditIcons/DeleteButton';
+// import AddButton from '../EditIcons/AddButton';
+import style from './styles/modals.module.css';
 
 function EditBookModal() {
   const { activeBook: book, saveEdits, setEditModalOpen } = useContext(
@@ -22,10 +22,10 @@ function EditBookModal() {
     newArray[index] = newValue || '';
     setAuthors(newArray);
   };
-  const handleAuthorDelete = (value) => {
-    let newArray = authors.filter((author) => author !== value);
-    setAuthors(newArray);
-  };
+  // const handleAuthorDelete = (value) => {
+  //   let newArray = authors.filter((author) => author !== value);
+  //   setAuthors(newArray);
+  // };
   const handleCategoryChange = (oldValue, newValue) => {
     let index = categories.findIndex((category) => category === oldValue);
     if (index === -1) {
@@ -35,10 +35,10 @@ function EditBookModal() {
     newArray[index] = newValue || '';
     setCategories(newArray);
   };
-  const handleCategoryDelete = (value) => {
-    let newArray = categories.filter((category) => category !== value);
-    setCategories(newArray);
-  };
+  // const handleCategoryDelete = (value) => {
+  //   let newArray = categories.filter((category) => category !== value);
+  //   setCategories(newArray);
+  // };
   return (
     <div className={style.modal}>
       <div className={style.imageContainer}>
@@ -66,10 +66,10 @@ function EditBookModal() {
                 handleAuthorChange(author, event.target.value);
               }}
             />
-            <DeleteButton activate={() => handleAuthorDelete(author)} />
+            {/* <DeleteButton activate={() => handleAuthorDelete(author)} /> */}
           </div>
         ))}
-        <AddButton activate={() => handleAuthorChange()} />
+        {/* <AddButton activate={() => handleAuthorChange()} /> */}
         <label forhtml='categories'>Categories:</label>
         {categories.map((category, index) => (
           <div key={index}>
@@ -79,10 +79,10 @@ function EditBookModal() {
                 handleCategoryChange(category, event.target.value);
               }}
             />
-            <DeleteButton activate={() => handleCategoryDelete(category)} />
+            {/* <DeleteButton activate={() => handleCategoryDelete(category)} /> */}
           </div>
         ))}
-        <AddButton activate={() => handleCategoryChange()} />
+        {/* <AddButton activate={() => handleCategoryChange()} /> */}
       </div>
       <div className={style.decisionButtons}>
         <button

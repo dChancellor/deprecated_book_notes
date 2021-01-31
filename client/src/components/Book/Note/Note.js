@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ChevronDown from './EditIcons/svg/ChevronDown';
 import style from '../css/Note.module.css';
 import scheme from '../css/schemes.module.css';
-import { noteTypes } from '../lib/constants';
+import { noteTypes } from '../../../lib/constants';
 
 function Note({ note, saveNote }) {
   const [isNoteEditable, setNoteEditable] = useState(note.new ? true : false);

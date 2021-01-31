@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { ActiveBookContext } from '../App';
 import { ChapterObject } from '../lib/constants';
-import Chapter from '../components/Chapter';
-import style from '../css/Chapter.module.css';
+import Chapter from '../components/Book/Chapter/Chapter';
+import PillButton from '../components/Buttons/elements/PillButton';
+import style from './styles/Book.module.css';
 
 function Book() {
   const { activeBook: book, saveEdits } = useContext(ActiveBookContext);
-
   return (
     <>
       <div className={style.chapters}>
@@ -15,14 +15,14 @@ function Book() {
             <Chapter chapter={chapter} key={chapter.id} />
           ))}
       </div>
-      <button
-        className={style.button}
-        onClick={() =>
-          saveEdits('chapter', new ChapterObject(book.chapters.length + 1))
-        }
-      >
-        Add Chapter
-      </button>
+      <PillButton
+        styles={'addChapter'}
+        activate={() => saveEdits(
+          'chapter',
+          new ChapterObject(book.chapters.length + 1)
+        )}
+        text={'Add Chapter'}
+      />
     </>
   );
 }

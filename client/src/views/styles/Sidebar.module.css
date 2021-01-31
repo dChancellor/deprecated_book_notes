@@ -1,0 +1,21 @@
+.sidebar {
+  width: min(70%, 27rem);
+  background-color: var(--clr-neutral-100);
+  height: 100vh;
+  padding: 15px 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.books {
+  overflow: auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.buttonRow {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 5px;
+}
