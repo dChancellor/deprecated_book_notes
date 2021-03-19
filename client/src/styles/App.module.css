@@ -16,5 +16,5 @@ body {
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
-  height:100vh;
+  height: 100vh;
 }

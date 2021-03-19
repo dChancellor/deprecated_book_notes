@@ -12,14 +12,20 @@
   cursor: pointer;
   position: relative;
 }
+.book:hover {
+  background-color: var(--clr-neutral-300);
+  color: var(--clr-neutral-100);
+}
+.book:hover p {
+  color: var(--clr-neutral-700);
+}
 .pin {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   height: 100%;
   position: absolute;
-  top: 8px;
-  left: -25px;
+  left: -30px;
 }
 .pinned {
   order: -1;

@@ -1,12 +1,34 @@
+.chapterBar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.chapterBar h3 {
+  color: var(--clr-neutral-100);
+  font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+  margin-right: 15px;
+}
 .textArea {
-    background-color: var(--clr-neutral-600);
-    border: none;
-    color: var(--clr-neutral-100);
-    resize: none;
-    padding: 7px;
-    height: 4.5rem;
-    line-height: 1.8rem;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    width: 80%;
-  }
+  background-color: var(--clr-neutral-600);
+  border: none;
+  color: var(--clr-neutral-100);
+  resize: none;
+  border-radius: 5px;
+  width: 80%;
+  margin-right:5px;
+}
+.chapterNumberInput {
+  max-width:50px;
+  text-align:center;
+  font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+  margin-right:5px;
+}
+.summary{
+  height: 4.5rem;
+  line-height: 1.8rem;
+  padding: 7px;
+  font-size: 1.2rem;
+}
+.editable{
+  border:2px var(--clr-neutral-300) solid;
+}

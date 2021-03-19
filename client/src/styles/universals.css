@@ -24,7 +24,8 @@ button {
   --clr-neutral-700: #546f7b;
   --clr-neutral-900: #506066;
   --clr-pinned-orange: #773e34;
-  --clr-button-warning: #a95d5d;
+  --clr-button-save: rgb(91, 211, 121);
+  --clr-button-trash: #a95d5d;
   --clr-button-blue: #7191ae;
   --clr-button-blue-focus: #87aed1;
   --clr-button-blue-active: #5d758a;
